@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: monoprompt
-Version: 1.0.0
+Version: 1.0.1
 Summary: Decorate your command-line interface and simplify complex user input with an allowlist or blocklist.
 Home-page: https://github.com/rmaniego/monoprompt
 Author: Rodney Maniego Jr.
@@ -19,7 +19,7 @@ Description: # monoprompt
         
         **1. Import** 
         ```python
-        from monoprompt.monoprompt import ask, request, message, decorator
+        from monoprompt.monoprompt import ask, request, message, decorator, catalog, keys
         ```
         
         **2. Ask an input from the user.** 
@@ -79,6 +79,24 @@ Description: # monoprompt
         message(string, chars=0, fill="-", centered=True)
         ```
         
+        **6. Print an ordered list.** 
+        ```python
+        # basic usage
+        catalog(("Apple", "Banana", "Cherries"))
+        
+        # or
+        selection = ("Apple", "Banana", "Cherries")
+        catalog(selection)
+        ```
+        
+        **7. Get indices of a list.** 
+        ```python
+        # basic usage
+        indices = keys(("Apple", "Banana", "Cherries"))
+        
+        # extend list
+        indices = keys(("Apple", "Banana", "Cherries"), extend=["x"])
+        ```
 Keywords: CONSOLE,COMMANDLINE,INPUT,UI
 Platform: UNKNOWN
 Classifier: Development Status :: 5 - Production/Stable
