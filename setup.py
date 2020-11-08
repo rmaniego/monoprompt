@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
 setuptools.setup(
     name = 'monoprompt',
     packages = ["monoprompt"],
-    version = '1.0.0',
+    version = '1.0.1',
     license='MIT',
     description = 'Decorate your command-line interface and simplify complex user input with an allowlist or blocklist.',
     long_description=long_description,

@@ -4,7 +4,6 @@
 """
 import shutil
 
-
 def decorator(string, chars=0):
     """
         Fills a single line of the console with a certain number of user-defined characters.
@@ -18,9 +17,9 @@ def decorator(string, chars=0):
     """
     max = width()
     string = str(string)
-    chars = get_int(chars, min=0, max=max)
+    chars = get_int(chars, min=1, max=max)
     if chars <= 0: chars = max
-    print(((string * (chars//len(string)))[:chars]), end="")
+    print(((string * (chars//len(string) + 1))[:chars]))
 
 def message(string, chars=0, fill="", padding="", centered=False):
     """
@@ -42,58 +41,17 @@ def message(string, chars=0, fill="", padding="", centered=False):
     max = width()
     string = str(string)
     padding = str(padding)
-    chars = get_int(chars, min=0, max=max)
+    chars = get_int(chars, max=max)
     if chars <= 0: chars = max
+    print(chars)
     if centered:
         chars = chars - (len(padding) * 2)
+        print(chars)
         string = string.center(chars)
-    else:
-        chars = chars - (len(padding) * 2) - len(string)
-        spaces = " " * chars
-        string = f"{string}{spaces}"
     if len(fill) >= 1:
         fill = str(fill)[0]
         string = string.replace("  ", f"{fill}{fill}").replace(f"{fill} ", f"{fill}{fill}")
-    print(f"{padding}{string}{padding}", end="")
-
-def catalog(items):
-    """
-        Creates an ordered list of all the items.
-        ...
-        Parameters
-        ---
-        items: list, tuple, iterable
-            a list of items
-    """
-    size = len(str(len(items)))
-    if type(items) in (list, tuple):
-        for index, item in enumerate(items):
-            numbering = index
-            if size == 2:
-                numbering = f"{index:0>2}"
-            elif size == 3:
-                numbering = f"{index:0>3}"
-            elif size == 4:
-                numbering = f"{index:0>4}"
-            print(f" {numbering}: {item}")
-
-def keys(items, extend=[]):
-    """
-        Generate a list of 1-based indices and extends an optional list of items
-        ...
-        Parameters
-        ---
-        items: list, tuple, iterable
-            a list of items
-        extend: list, tuple, iterable
-            a list of items
-    """
-    indices = []
-    for index in range(0, len(items)):
-        indices.append(str(index))
-    if type(extend) in (list, tuple):
-        indices.extend(extend)
-    return indices
+    print(f"{padding}{string}{padding}")
 
 def ask(label, chars=0, once=False):
     """

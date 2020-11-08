@@ -10,7 +10,7 @@ pip install monoprompt
 
 **1. Import** 
 ```python
-from monoprompt.monoprompt import ask, request, message, decorator
+from monoprompt.monoprompt import ask, request, message, decorator, catalog, keys
 ```
 
 **2. Ask an input from the user.** 
@@ -68,4 +68,23 @@ message(string, padding="#", centered=True)
 
 # fills the leading and trailing white spaces with the specified character
 message(string, chars=0, fill="-", centered=True)
+```
+
+**6. Print an ordered list.** 
+```python
+# basic usage
+catalog(("Apple", "Banana", "Cherries"))
+
+# or
+selection = ("Apple", "Banana", "Cherries")
+catalog(selection)
+```
+
+**7. Get indices of a list.** 
+```python
+# basic usage
+indices = keys(("Apple", "Banana", "Cherries"))
+
+# extend list
+indices = keys(("Apple", "Banana", "Cherries"), extend=["x"])
 ```

@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+monoprompt/__init__.py
+monoprompt/monoprompt.py
+monoprompt/version.py
+monoprompt.egg-info/PKG-INFO
+monoprompt.egg-info/SOURCES.txt
+monoprompt.egg-info/dependency_links.txt
+monoprompt.egg-info/top_level.txt
